@@ -1,0 +1,32 @@
+
+    <div class="container">
+        <div class="header clearfix">
+            <h3 class="text-muted">Products example</h3>
+        </div>
+
+        <div class="bs-example" data-example-id="panel-without-body-with-table">
+            <div class="panel panel-default">
+                <div class="panel-heading">Products list</div>
+                <div class="panel-heading">{{ product.name }}</div>
+                <div class="panel-heading">{{ results }}</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>SKU</th>
+                            <th>Type</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>{{ product.model }}</th>
+                            <td>{{ product.sku }}</td>
+                            <td>{{ product.type }}</td>
+                            <td>{{ product.price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
