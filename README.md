@@ -24,17 +24,17 @@ Install Docker and Docker-compse then you can run the stack with Flask, Mongodb 
 ## TODO 
 
   * Add CSS code
+
     index.htm :
-    -----------
     * Head bar black with the search box in the middle with a button
     * The rest of the page is white and empty
+
     list.htmp :
-    ----------
     * Show the product that the customer ask for in the middle of the page :
       * Add the product's picture
       * Space for product name, price and all other description available in the MongoDB
+
     search.htm :
-    ------------
     * Add 'suggestion' (retrieve thanks to redis) below the search box when a user is looking for a product
     * Highligth the suggestion text when the user is naviguating on it (by mouse or keyboard - Maybe keyboard first then if time with mouse...)
 
