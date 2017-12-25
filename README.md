@@ -17,3 +17,6 @@ Install the requirements packages by running the command below :
 
     $ pip install -r requirements.txt
 
+### Docker
+Install Docker and Docker-compse then you can run the stack with Flask, Mongodb & Redis :
+    $ docker-compose up
