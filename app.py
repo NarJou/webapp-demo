@@ -8,7 +8,7 @@ application = Flask(__name__)
 client = MongoClient('35.224.255.11:27017')
 db = client.test.products
 
-r = redis.StrictRedis(host="10.128.0.2", port=6379, db=0)
+r = redis.StrictRedis(host="35.193.97.224", port=6379, db=0)
 
 def getProduct(key):
     try:

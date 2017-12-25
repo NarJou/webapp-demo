@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  web:
+    image: marg6/web:demo
+    environment:
+      - PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin"
+    build: .
+    ports:
+     - "5000:5000"
+  redis:
+    image: "redis:alpine"
+
