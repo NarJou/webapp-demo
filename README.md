@@ -22,6 +22,7 @@ Install Docker and Docker-compse then you can run the stack with Flask, Mongodb 
     $ docker-compose up
 
 ## TODO 
+
   * Add CSS code
     index.htm :
     -----------
