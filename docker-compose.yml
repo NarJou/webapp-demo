@@ -5,17 +5,17 @@ services:
   # MongoDB container
   mongo:
     image: mongo:3.6
-    expose:
-      - "27017"
+    ports:
+      - "27017:27017"
 
   redis:
     image: "redis:alpine"
-    expose:
-      - "6379"
+    ports:
+      - "6379:6379"
 
   # webapp container - built from Dockerfile
   webapp:
-    build: webapp/
+    build: webapp-env/
     image: flask:2.7-alpine
     volumes:
       - "./src:/webapp/src"

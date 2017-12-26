@@ -64,7 +64,7 @@ def search_results(page,query): #FIXME
              if entry[-1] == "*" and len(results) != count:
                 results.append(entry[0:-1])
 
-    STR = "Amazon - Fire TV Stick" #FIXME
+    STR = "Directed Electronics - Viper Audio Glass Break Sensor"
     product = getProduct(STR) #FIXME
     return render_template('index.html', product=product, results=results)
 

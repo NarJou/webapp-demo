@@ -19,11 +19,12 @@ r = redis.StrictRedis(host="redis", port=6379, db=0)
 
 ## With female name file
 
+print "Loading entries in the Redis DB\n"
 with open('female-names-2.txt',"r") as f:
-    names = json.load(f)
-    for name in names:
-        n = name["name"]
-        for c in range(1,len(n)):
-            prefix = n[0:c]
+    for line in f:
+        n = line.strip()
+        for l in range(1,len(n)):
+            prefix = n[0:l]
             r.zadd('names',0,prefix)
-        r.zadd('names',0,n+"*")
+    r.zadd('names',0,n+"*")
+
