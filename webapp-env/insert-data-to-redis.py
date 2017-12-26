@@ -23,8 +23,8 @@ print "Loading entries in the Redis DB\n"
 with open('female-names-2.txt',"r") as f:
     for line in f:
         n = line.strip()
-        for l in range(1,len(n)):
-            prefix = n[0:l]
+        for l in range(len(n)):
+            prefix = n[0:l+1]
             r.zadd('names',0,prefix)
         r.zadd('names',0,n+"*")
 
