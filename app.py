@@ -6,10 +6,10 @@ from flask import Flask,render_template,jsonify,json,request,redirect,url_for
 
 application = Flask(__name__)
 
-client = MongoClient('35.224.255.11:27017')
+client = MongoClient('mongo:27017')
 db = client.test.products
 
-r = redis.StrictRedis(host="35.193.97.224", port=6379, db=0)
+r = redis.StrictRedis(host="redis", port=6379, db=0)
 
 def getProduct(key):
     try:
