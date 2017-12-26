@@ -1,12 +1,30 @@
-version: '3.3'
+version: "3"
+
 services:
-  web:
-    image: marg6/web:demo
-    environment:
-      - PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin"
-    build: .
-    ports:
-     - "5000:5000"
+
+  # MongoDB container
+  mongo:
+    image: mongo:3.6
+    expose:
+      - "27017"
+
   redis:
     image: "redis:alpine"
+    expose:
+      - "6379"
 
+  # webapp container - built from Dockerfile
+  webapp:
+    build: webapp/
+    image: flask:2.7-alpine
+    volumes:
+      - "./src:/webapp/src"
+    links:
+      - mongo
+      - redis
+    ports:
+      - "5000:5000"
+        #command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - mongo
+      - redis

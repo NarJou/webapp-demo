@@ -2,6 +2,7 @@ import redis
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask import Flask,render_template,jsonify,json,request,redirect,url_for
+## TODO add code to get product name from MongoDB and fill up Redis with it
 
 application = Flask(__name__)
 
