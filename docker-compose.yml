@@ -19,6 +19,8 @@ services:
     image: flask:2.7-alpine
     volumes:
       - "./src:/webapp/src"
+    environment:
+      FLASK_DEBUG: 1
     links:
       - mongo
       - redis
