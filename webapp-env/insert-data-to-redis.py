@@ -26,5 +26,5 @@ with open('female-names-2.txt',"r") as f:
         for l in range(1,len(n)):
             prefix = n[0:l]
             r.zadd('names',0,prefix)
-    r.zadd('names',0,n+"*")
+        r.zadd('names',0,n+"*")
 
