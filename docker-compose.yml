@@ -13,6 +13,17 @@ services:
     ports:
       - "6379:6379"
 
+  apache:
+    image: "bitnami/apache:latest"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./src/webapp:/app"
+      - "./webapp-env/apache-conf/webapp-vhost.conf:/bitnami/apache/conf/vhosts/my_vhost.conf:ro"
+    depends_on:
+      - webapp
+
   # webapp container - built from Dockerfile
   webapp:
     build: webapp-env/
