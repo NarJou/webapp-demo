@@ -35,7 +35,7 @@ def search(page,query): #FIXME
             results = {"results": result}
             return jsonify(results)
     else:
-        return redirect(url_for('showProduct'))
+        return redirect(url_for('showProduct', product_name=query))
     #return jsonify({'results':[{'name': query},{'name': query}]})
 
 #@application.route('/search', methods=['GET', 'POST'])
@@ -85,10 +85,13 @@ def search_results(page,query): #FIXME
     return render_template('index.html', product=product, results=results)
 
 
-@application.route('/show', methods=['GET', 'POST'])
+@application.route('/show/<product_name>', methods=['GET', 'POST'])
 def showProduct(product_name):
-    product = getProduct(product_name) #FIXME
+    product = getProduct(product_name)
+    import sys # FIXME
+    print >> sys.stderr, product #FIXME
     return render_template('index.html', product=product)
+
 
 @application.route('/', methods=['GET', 'POST'])
 def index():

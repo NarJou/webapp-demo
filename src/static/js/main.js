@@ -14,6 +14,10 @@ $( "#search-input" ).autocomplete({
     select: function( event, ui ) {
 
         console.log( "name " + ui.item.name + " name " + ui.item.name );
+        $.ajax( {
+            url: $SCRIPT_ROOT +  "/search/" + ui.item.name,
+            method: "POST"
+        } );
 
     }
 } )
