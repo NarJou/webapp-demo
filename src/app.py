@@ -25,18 +25,29 @@ def getProduct(key):
     except Exception, e:
         return str(e)
 
-
+@application.route('/search/<query>', defaults={'page': 1}, methods=['GET', 'POST'])
 @application.route('/search', methods=['GET', 'POST'])
-def search(): #FIXME
-    if request.method != 'POST':
-        return redirect(url_for('showProduct'))
-
+def search(page,query): #FIXME
     query = request.form.get('query', None)
-    print "SEARCH_QUERY-->"+query
-    if query:
-        return redirect(url_for('search_results', query=query))
-    else:
-        return redirect(url_for('showProduct'))
+#    if request.method != 'POST':
+#        if query:
+#            result = []
+#            results = {"results": result.append({"name":i}) for i in autocomplete(query)}
+#            results = {"results": result}
+#                   return jsonify(results)
+    return jsonify({'results':[{'name': query},{'name': query}]})
+
+#@application.route('/search', methods=['GET', 'POST'])
+#def search(): #FIXME
+#    if request.method != 'POST':
+#        return redirect(url_for('showProduct'))
+#
+#    query = request.form.get('query', None)
+#    print "SEARCH_QUERY-->"+query
+#    if query:
+#        return redirect(url_for('search_results', query=query))
+#    else:
+#        return redirect(url_for('showProduct'))
 
 def autocomplete(query):
     print "SEARCH_RESULTS_QUERY-->"+query
