@@ -13,10 +13,16 @@ $( "#search-input" ).autocomplete({
     minLength: 1,
     select: function( event, ui ) {
 
-        console.log( "name " + ui.item.name + " name " + ui.item.name );
+        console.log( "name " + ui.item.name );
         $.ajax( {
             url: $SCRIPT_ROOT +  "/search/" + ui.item.name,
-            method: "POST"
+            method: "POST",
+            success: function(response){
+                window.location.href = $SCRIPT_ROOT + "/show/" + ui.item.name;
+            },
+            error: function(error){
+                console.log(error);
+            }
         } );
 
     }
