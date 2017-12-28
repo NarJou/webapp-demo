@@ -28,14 +28,15 @@ def getProduct(key):
 @application.route('/search/<query>', defaults={'page': 1}, methods=['GET', 'POST'])
 @application.route('/search', methods=['GET', 'POST'])
 def search(page,query): #FIXME
-    query = request.form.get('query', None)
-#    if request.method != 'POST':
-#        if query:
-#            result = []
-#            results = {"results": result.append({"name":i}) for i in autocomplete(query)}
-#            results = {"results": result}
-#                   return jsonify(results)
-    return jsonify({'results':[{'name': query},{'name': query}]})
+    if request.method != 'POST':
+        if query:
+            result = []
+            results = {"results": result.append({"name":i}) for i in autocomplete(query)}
+            results = {"results": result}
+            return jsonify(results)
+    else:
+        return redirect(url_for('showProduct'))
+    #return jsonify({'results':[{'name': query},{'name': query}]})
 
 #@application.route('/search', methods=['GET', 'POST'])
 #def search(): #FIXME
@@ -84,11 +85,15 @@ def search_results(page,query): #FIXME
     return render_template('index.html', product=product, results=results)
 
 
-@application.route('/', methods=['GET', 'POST'])
-def showProduct():
-    STR = "Duracell - AAA Batteries (4-Pack)" #FIXME
-    product = getProduct(STR) #FIXME
+@application.route('/show', methods=['GET', 'POST'])
+def showProduct(product_name):
+    product = getProduct(product_name) #FIXME
     return render_template('index.html', product=product)
+
+@application.route('/', methods=['GET', 'POST'])
+def index():
+    STR = "" #FIXME
+    return render_template('index.html', product=STR)
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
