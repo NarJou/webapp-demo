@@ -85,7 +85,7 @@ def search_results(page,query): #FIXME
     return render_template('index.html', product=product, results=results)
 
 
-@application.route('/show/<product_name>', methods=['GET', 'POST'])
+@application.route('/show/<product_name>')
 def showProduct(product_name):
     product = getProduct(product_name)
     import sys # FIXME
@@ -93,7 +93,7 @@ def showProduct(product_name):
     return render_template('index.html', product=product)
 
 
-@application.route('/', methods=['GET', 'POST'])
+@application.route('/')
 def index():
     STR = "" #FIXME
     return render_template('index.html', product=STR)
