@@ -14,16 +14,7 @@ $( "#search-input" ).autocomplete({
     select: function( event, ui ) {
 
         console.log( "name " + ui.item.name );
-        $.ajax( {
-            url: $SCRIPT_ROOT +  "/search/" + ui.item.name,
-            method: "POST",
-            success: function(response){
-                window.location.href = $SCRIPT_ROOT + "/show/" + ui.item.name;
-            },
-            error: function(error){
-                console.log(error);
-            }
-        } );
+	showDetailProduct( ui.item.name );
 
     }
 } )
@@ -32,3 +23,28 @@ $( "#search-input" ).autocomplete({
         .append( $( "<div>" ).text( item.name) )
         .appendTo( ul );
 };
+
+function showDetailProduct ( itemName ) {
+
+    $.ajax( {
+            url: $SCRIPT_ROOT +  "/search/" + itemName,
+            method: "POST",
+            success: function(response){
+                console.log( "name : " + response.name );
+
+                $('h3').text( response.name );
+                $('h5').text( 'Model : ' +response.model );
+
+		$('#sku').text( response.sku );
+		$('#type').text( response.type );
+		$('#price').text( response.price );
+
+                $('#welcome-page').hide();
+                $('#result').show();
+
+            },
+            error: function(error){
+                console.log(error);
+            }
+        } );
+}

@@ -1,13 +1,13 @@
-.headbar {
-    color:#333;
-    float:left;
-    margin:0;
-    padding-top:14.5px;
-    padding-bottom:14.5px;
-    min-height:53px;
+#welcome-page {
+  text-align: center;
 }
 
-.search-form {
-    width:250px;
-    margin:5px 0;
+.form-search {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.navbar {
+  position: static;
+  background-color: #000000;
 }
