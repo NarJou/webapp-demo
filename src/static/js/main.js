@@ -35,9 +35,11 @@ function showDetailProduct ( itemName ) {
                 $('h3').text( response.name );
                 $('h5').text( 'Model : ' +response.model );
 
-		$('#sku').text( response.sku );
-		$('#type').text( response.type );
-		$('#price').text( response.price );
+		        $('#sku').text( response.sku );
+		        $('#type').text( response.type );
+		        $('#price').text( response.price );
+                $('#descritpion').text( response.description );
+        		$('img').attr('src', response.image );
 
                 $('#welcome-page').hide();
                 $('#result').show();

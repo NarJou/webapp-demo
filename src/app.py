@@ -19,7 +19,9 @@ def getProduct(key):
                 'model':productObject['model'],
                 'sku':productObject['sku'],
                 'type':productObject['type'],
-                'price':productObject['price']
+                'description':productObject['description'],
+                'price':productObject['price'],
+		'image':productObject['image']
                 }
         return productDict
     except Exception, e:
