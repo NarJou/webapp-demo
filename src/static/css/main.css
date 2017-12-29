@@ -1,0 +1,13 @@
+#welcome-page {
+  text-align: center;
+}
+
+.form-search {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.navbar {
+  position: static;
+  background-color: #000000;
+}

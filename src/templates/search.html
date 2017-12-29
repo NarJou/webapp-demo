@@ -1,5 +1,5 @@
-<div class="headbar" id="headbar-main">
-    <form class="search-form" method="post" action="{{ url_for('search') }}">
-        <input id="search" name="query" type="text" autocomplete="off"/>
+<div id="search" class="ui-widget">
+    <form class="form-search">
+        <input id="search-input" class="input-medium search-query" name="query" type="text" action="{{ url_for('search') }}" autocomplete="off"/>
     </form>
 </div>
