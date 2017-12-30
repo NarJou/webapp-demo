@@ -4,7 +4,7 @@ from pymongo import MongoClient
 client = MongoClient('mongo:27017')
 db = client.test.products
 
-with open('ten-products.json', 'r') as f:
+with open('30-products.json', 'r') as f:
   products = json.load(f)
 
 for product in products:
